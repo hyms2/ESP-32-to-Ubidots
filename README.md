@@ -65,11 +65,6 @@ The collected data is displayed in the **Ubidots dashboard** for real-time monit
 
 ---
 
-## ✨ **Contributors**
-👤 [Your Name] – Developer  
-
----
-
 ## 📜 **License**
 This project is **open-source** under the **MIT License**.  
 
