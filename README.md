@@ -57,7 +57,7 @@ The collected data is displayed in the **Ubidots dashboard** for real-time monit
 ---
 
 ## 📊 **Ubidots Dashboard Setup**
-1. **Go to Ubidots** → Create a new **Device** (`esp-32`).  
+1. **Go to Ubidots** → Create a new **Device**.  
 2. **Add Variables**: `distance`, `temperature`, `humidity`.  
 3. **Create Widgets**: Select **Gauge, Line Chart, or Table** to visualize data.  
 
