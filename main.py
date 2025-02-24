@@ -6,16 +6,20 @@ from machine import Pin
 
 # Ubidots API Information
 UBIDOTS_URL = "https://industrial.api.ubidots.com/api/v1.6/devices/[device_name]/"
-UBIDOTS_TOKEN = "*"
+UBIDOTS_TOKEN = "x"
+
+# Flask API URL (Change to your PC's IP)
+FLASK_SERVER_URL = "http://[ip_address]:5000/add_data"
 
 # Wi-Fi Credentials
-SSID = "*"
-PASSWORD = "*"
+SSID = "x"
+PASSWORD = "x"
 
 # Define Ultrasonic Sensor Pins
 TRIG = Pin(22, Pin.OUT)
 ECHO = Pin(23, Pin.IN)
 
+# DHT11 Sensor
 dht_sensor = dht.DHT11(Pin(13))
 
 # Function to Connect to Wi-Fi
@@ -45,7 +49,7 @@ def measure_distance():
         pulse_end = time.ticks_us()
 
     pulse_duration = time.ticks_diff(pulse_end, pulse_start)
-    distance = (pulse_duration * 0.0343) / 2  # Convert to cm
+    distance = (pulse_duration * 0.0343) / 2
 
     return distance
 
@@ -75,10 +79,30 @@ def send_to_ubidots(distance, temperature, humidity):
 
     try:
         response = urequests.post(UBIDOTS_URL, json=data, headers=headers)
-        print("Response:", response.text)
+        print("Ubidots Response:", response.text)
         response.close()
     except Exception as e:
-        print("Error sending data:", e)
+        print("Error sending data to Ubidots:", e)
+
+# Send Data to MongoDB via Flask API
+def send_to_mongodb(distance, temperature, humidity):
+    headers = {
+        "Content-Type": "application/json"
+    }
+
+    data = {
+        "distance": distance,
+        "temperature": temperature,
+        "humidity": humidity
+    }
+
+    try:
+        response = urequests.post(FLASK_SERVER_URL, json=data, headers=headers)
+        print("MongoDB Response:", response.text)
+        response.close()
+    except Exception as e:
+        print("Error sending data to MongoDB:", e)
+
 
 connect_wifi()
 
@@ -87,7 +111,9 @@ while True:
     temp, humid = read_dht11()
     
     if temp is not None and humid is not None:
-        print(f"Distance: {distance} cm, Temp: {temp}°C, Humidity: {humid}%")
+        print(f"Distance: {distance:.2f} cm, Temp: {temp}°C, Humidity: {humid}%")
+        
         send_to_ubidots(distance, temp, humid)
+        send_to_mongodb(distance, temp, humid)
 
     time.sleep(10)
