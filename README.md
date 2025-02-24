@@ -33,5 +33,3 @@ This project uses an **ESP32** to collect sensor data from a **DHT11 temperature
 | DHT11 Data | GPIO 13 (D13) |
 | VCC (Both) | 3.3V or 5V |
 | GND (Both) | GND |
-
-```
