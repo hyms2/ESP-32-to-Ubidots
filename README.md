@@ -28,8 +28,8 @@ This project uses an **ESP32** to collect sensor data from a **DHT11 temperature
 ## 🔌 Wiring Diagram
 | Component  | ESP32 Pin  |
 |------------|-----------|
-| HC-SR04 Trig | GPIO 22 (D22) |
-| HC-SR04 Echo | GPIO 23 (D23) |
-| DHT11 Data | GPIO 13 (D13) |
-| VCC (Both) | 3.3V or 5V |
+| HC-SR04 Trig | D22 |
+| HC-SR04 Echo | D23 |
+| DHT11 Data | D13 |
+| VCC (Both) | 3.3V |
 | GND (Both) | GND |
