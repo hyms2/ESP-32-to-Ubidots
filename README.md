@@ -1,40 +1,31 @@
-## **ESP32 IoT Sensor with Ubidots Integration**  
+## **ESP32 IoT Sensor with Ubidots and MongoDB Integration**  
 
-### 📌 **Project Overview**  
-This project integrates an **ESP32 microcontroller** with **Ubidots** to send real-time sensor data over Wi-Fi. The system collects:  
-- 📏 **Distance measurements** using an **ultrasonic sensor (HC-SR04)**  
-- 🌡 **Temperature & Humidity** using a **DHT11 sensor**  
-- 📡 **Wireless data transmission** to **Ubidots** via **REST API**  
+## 📌 Project Overview
+This project uses an **ESP32** to collect sensor data from a **DHT11 temperature & humidity sensor** and an **HC-SR04 ultrasonic sensor**, sending it to **Ubidots** (for visualization) and **MongoDB** (for storage). The ESP32 connects to Wi-Fi, reads sensor values, and transmits the data via REST API.
 
-The collected data is displayed in the **Ubidots dashboard** for real-time monitoring.  
+## 🚀 Features
+- Collects temperature and humidity using **DHT11**
+- Measures distance using **HC-SR04 Ultrasonic Sensor**
+- Sends data to **Ubidots** for real-time visualization
+- Stores data in **MongoDB** via a Flask API
+- Wi-Fi connectivity for seamless IoT integration
+- Can be expanded to include more sensors
 
----
+## 🛠️ Hardware Requirements
+- **ESP32 Development Board**
+- **DHT11 Temperature & Humidity Sensor**
+- **HC-SR04 Ultrasonic Sensor**
+- **Jumper Wires**
+- **Breadboard (Optional)**
 
-## 🚀 **Features**
-- 📡 **Wi-Fi Connectivity**: Connects the ESP32 to a Wi-Fi network.  
-- 📊 **Data Logging**: Sends distance, temperature, and humidity to Ubidots.  
-- 🔄 **Real-time Updates**: Sensor values update automatically.  
-- 📉 **Ubidots Dashboard Integration**: Visualize data with graphs & widgets.  
+## 🖥️ Software Requirements
+- **MicroPython** firmware for ESP32
+- **Thonny** (MicroPython IDE)
+- **Flask** (Python backend for MongoDB API)
+- **MongoDB Atlas** (Cloud database)
+- **Ubidots** (Data visualization)
 
----
-
-## ⚙️ **Hardware Requirements**
-- ✅ **ESP32** (NodeMCU / DevKit V1)  
-- ✅ **Ultrasonic Sensor (HC-SR04)**  
-- ✅ **DHT11 Temperature & Humidity Sensor**  
-- ✅ **Jumper Wires**  
-- ✅ **Micro-USB Cable**  
-
----
-
-## 🛠 **Software Requirements**
-- **MicroPython** (Firmware for ESP32)  
-- **Thonny IDE** (For programming ESP32)  
-- **Ubidots** (IoT platform for data visualization)  
-
----
-
-## 🔌 **Wiring Diagram**
+## 🔌 Wiring Diagram
 | Component  | ESP32 Pin  |
 |------------|-----------|
 | HC-SR04 Trig | GPIO 22 (D22) |
@@ -43,29 +34,4 @@ The collected data is displayed in the **Ubidots dashboard** for real-time monit
 | VCC (Both) | 3.3V or 5V |
 | GND (Both) | GND |
 
----
-
----
-
-## 🚀 **How It Works**
-1. **ESP32 reads sensor data** from HC-SR04 and DHT11.  
-2. **Sends the data** to Ubidots via **REST API (HTTP POST request)**.  
-3. **Ubidots stores the values**, and you can **view them on the Ubidots dashboard**.  
-
----
-
----
-
-## 📊 **Ubidots Dashboard Setup**
-1. **Go to Ubidots** → Create a new **Device**.  
-2. **Add Variables**: `distance`, `temperature`, `humidity`.  
-3. **Create Widgets**: Select **Gauge, Line Chart, or Table** to visualize data.  
-
----
-
----
-
-## 📜 **License**
-This project is **open-source** under the **MIT License**.  
-
----
+```
