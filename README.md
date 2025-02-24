@@ -8,18 +8,16 @@ This project uses an **ESP32** to collect sensor data from a **DHT11 temperature
 - Measures distance using **HC-SR04 Ultrasonic Sensor**
 - Sends data to **Ubidots** for real-time visualization
 - Stores data in **MongoDB** via a Flask API
-- Wi-Fi connectivity for seamless IoT integration
-- Can be expanded to include more sensors
 
 ## 🛠️ Hardware Requirements
-- **ESP32 Development Board**
-- **DHT11 Temperature & Humidity Sensor**
-- **HC-SR04 Ultrasonic Sensor**
+- **ESP32**
+- **DHT11 Sensor**
+- **HC-SR04 Sensor**
 - **Jumper Wires**
 - **Breadboard (Optional)**
 
 ## 🖥️ Software Requirements
-- **MicroPython** firmware for ESP32
+- **MicroPython** (Firmware for ESP32)
 - **Thonny** (MicroPython IDE)
 - **Flask** (Python backend for MongoDB API)
 - **MongoDB Atlas** (Cloud database)
